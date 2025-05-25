@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Attendance Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fa-solid fa-user-check"></i> Student Attendance Tracker</h1>
+
+    <div class="admin-login">
+      <input type="password" id="admin-password" placeholder="Enter admin password" />
+      <button onclick="handleLogin()">Login</button>
+    </div>
+
+    <div class="main-content" style="display: none;">
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by name..."
+          onkeyup="filterStudents()"
+        />
+      </div>
+
+      <table id="attendanceTable">
+        <thead>
+          <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="studentTableBody"></tbody>
+      </table>
+
+      <button onclick="submitAttendance()">Submit Attendance</button>
+      <button id="export-btn" onclick="exportToCSV()">Export CSV</button>
+      <button onclick="toggleDarkMode()" disabled>Toggle Dark Mode</button>
+
+      <div id="history">
+        <h2>Attendance History</h2>
+        <div id="attendanceHistory"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content" id="modal-message"></div>
+  </div>
+</body>
+</html>
